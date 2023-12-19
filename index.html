@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Hussaini | Card</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=Raleway:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body,
+        html {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            position: relative;
+        }
+
+        div {
+            position: absolute;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100vw;
+            height: 100vh;
+            top: 0;
+            left: 0;
+        }
+
+        a {
+            width: 200px;
+            height: 50px;
+            font-size: 1.1rem;
+            line-height: 50px;
+            text-align: center;
+            background-color: rgb(50, 124, 153);
+            color: white;
+            border: 0px solid rgb(50, 124, 153);
+            text-decoration: none;
+            margin-top: 500px;
+            transition: .5s all;
+        }
+
+        a:hover {
+            cursor: pointer;
+            background-color: white;
+            border: 1px solid rgb(50, 124, 153);
+            color: rgb(50, 124, 153);
+            background-color: white;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.2/tsparticles.confetti.bundle.min.js"></script>
+
+</head>
+
+<body>
+
+    <div>
+        <h1>Happy Birthday</h1>
+        <h3>Maryam Quadri</h3>
+    </div>
+    <script>
+        const duration = 15 * 1000,
+            animationEnd = Date.now() + duration,
+            defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+        function randomInRange(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+
+        const interval = setInterval(function () {
+            const timeLeft = animationEnd - Date.now();
+
+            if (timeLeft <= 0) {
+                return clearInterval(interval);
+            }
+
+            const particleCount = 50 * (timeLeft / duration);
+
+            // since particles fall down, start a bit higher than random
+            confetti(
+                Object.assign({}, defaults, {
+                    particleCount,
+                    origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
+                })
+            );
+            confetti(
+                Object.assign({}, defaults, {
+                    particleCount,
+                    origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
+                })
+            );
+        }, 250);
+    </script>
+    <div style="z-index:1000000;">
+        <a href="https://muhammadhussaini.github.io/">Home</a>
+    </div>
+</body>
+
+</html>
